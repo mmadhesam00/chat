@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MISS MOHAMMDI | Secure Report</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+:root{
+    --pink:#ff2da6;
+    --pink2:#ff66c4;
+    --purple:#9b4dff;
+    --cyan:#00f7ff;
+    --green:#00ff88;
+    --bg:#050507;
+    --card:rgba(12,10,18,.9);
+    --muted:#aaa3b5;
+}
+
+html,body{
+    min-height:100%;
+}
+
+body{
+    font-family:"Vazirmatn",sans-serif;
+    background:
+    radial-gradient(circle at 15% 15%,rgba(255,45,166,.14),transparent 30%),
+    radial-gradient(circle at 85% 80%,rgba(155,77,255,.15),transparent 30%),
+    var(--bg);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* BACKGROUND */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.22;
+    background-image:
+    linear-gradient(rgba(255,45,166,.08) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,45,166,.08) 1px,transparent 1px);
+    background-size:35px 35px;
+}
+
+.scanline{
+    position:fixed;
+    top:-10%;
+    left:0;
+    width:100%;
+    height:2px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        var(--pink),
+        var(--cyan),
+        transparent
+    );
+    box-shadow:0 0 20px var(--pink);
+    opacity:.45;
+    animation:scan 5s linear infinite;
+    pointer-events:none;
+    z-index:5;
+}
+
+@keyframes scan{
+    from{top:-5%}
+    to{top:105%}
+}
+
+.particles span{
+    position:fixed;
+    width:3px;
+    height:3px;
+    border-radius:50%;
+    background:var(--pink);
+    box-shadow:0 0 10px var(--pink);
+    opacity:.5;
+    animation:float 8s infinite ease-in-out;
+    pointer-events:none;
+}
+
+.particles span:nth-child(1){left:8%;top:20%}
+.particles span:nth-child(2){left:20%;top:75%;animation-delay:1s}
+.particles span:nth-child(3){left:38%;top:35%;animation-delay:2s}
+.particles span:nth-child(4){left:62%;top:70%;animation-delay:3s}
+.particles span:nth-child(5){left:78%;top:22%;animation-delay:4s}
+.particles span:nth-child(6){left:91%;top:58%;animation-delay:5s}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0) scale(1);
+    }
+
+    50%{
+        transform:translateY(-35px) scale(1.8);
+    }
+}
+
+/* MAIN */
+
+.page{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:25px 15px;
+    position:relative;
+    z-index:2;
+}
+
+.app{
+    width:100%;
+    max-width:430px;
+}
+
+/* HEADER */
+
+.header{
+    text-align:center;
+    margin-bottom:18px;
+    animation:appear .8s ease;
+}
+
+.brand{
+    font-size:clamp(28px,8vw,38px);
+    font-weight:800;
+    letter-spacing:3px;
+    color:#fff;
+    text-shadow:
+    0 0 5px #fff,
+    0 0 12px var(--pink),
+    0 0 28px var(--pink);
+}
+
+.subtitle{
+    margin-top:5px;
+    color:var(--muted);
+    font-size:11px;
+    letter-spacing:3px;
+    direction:ltr;
+}
+
+.status{
+    width:max-content;
+    margin:13px auto 0;
+    display:flex;
+    align-items:center;
+    gap:7px;
+    padding:5px 12px;
+    border:1px solid rgba(0,255,136,.3);
+    border-radius:30px;
+    background:rgba(0,255,136,.05);
+    color:#8affc4;
+    font-size:10px;
+    direction:ltr;
+}
+
+.status-dot{
+    width:7px;
+    height:7px;
+    background:var(--green);
+    border-radius:50%;
+    box-shadow:0 0 10px var(--green);
+    animation:blink 1.3s infinite;
+}
+
+@keyframes blink{
+    50%{opacity:.25}
+}
+
+/* CARD */
+
+.card{
+    position:relative;
+    background:var(--card);
+    border:1px solid rgba(255,45,166,.35);
+    border-radius:25px;
+    padding:24px 20px;
+    box-shadow:
+    0 0 30px rgba(255,45,166,.08),
+    inset 0 0 30px rgba(255,45,166,.025);
+    backdrop-filter:blur(14px);
+    overflow:hidden;
+    animation:appear .9s ease;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:15%;
+    width:70%;
+    height:1px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        var(--pink),
+        var(--purple),
+        transparent
+    );
+    box-shadow:0 0 15px var(--pink);
+}
+
+.corner{
+    position:absolute;
+    width:15px;
+    height:15px;
+    border-color:var(--pink);
+    opacity:.8;
+}
+
+.corner.tl{
+    top:10px;
+    left:10px;
+    border-top:1px solid;
+    border-left:1px solid;
+}
+
+.corner.tr{
+    top:10px;
+    right:10px;
+    border-top:1px solid;
+    border-right:1px solid;
+}
+
+.corner.bl{
+    bottom:10px;
+    left:10px;
+    border-bottom:1px solid;
+    border-left:1px solid;
+}
+
+.corner.br{
+    bottom:10px;
+    right:10px;
+    border-bottom:1px solid;
+    border-right:1px solid;
+}
+
+.terminal{
+    color:var(--cyan);
+    font-family:monospace;
+    font-size:10px;
+    margin-bottom:16px;
+    text-align:left;
+    direction:ltr;
+    opacity:.75;
+}
+
+.title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:7px;
+    font-size:21px;
+    font-weight:700;
+}
+
+.title i{
+    color:var(--pink);
+    text-shadow:0 0 14px var(--pink);
+}
+
+.description{
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.9;
+    margin-bottom:21px;
+}
+
+/* FORM */
+
+.field{
+    margin-bottom:15px;
+}
+
+label{
+    display:block;
+    font-size:12px;
+    margin-bottom:7px;
+    color:#ddd;
+}
+
+label i{
+    color:var(--pink);
+    margin-left:5px;
+}
+
+input,
+textarea{
+    width:100%;
+    border:1px solid rgba(255,255,255,.1);
+    background:rgba(0,0,0,.38);
+    border-radius:13px;
+    padding:13px 14px;
+    color:white;
+    outline:none;
+    font-family:inherit;
+    font-size:13px;
+    transition:.3s;
+}
+
+input{
+    direction:ltr;
+    text-align:left;
+}
+
+textarea{
+    direction:rtl;
+    resize:vertical;
+    min-height:125px;
+}
+
+input::placeholder,
+textarea::placeholder{
+    color:#696572;
+}
+
+input:focus,
+textarea:focus{
+    border-color:var(--pink);
+    box-shadow:
+    0 0 0 3px rgba(255,45,166,.07),
+    0 0 18px rgba(255,45,166,.12);
+}
+
+/* BUTTON */
+
+.submit{
+    width:100%;
+    border:0;
+    border-radius:14px;
+    padding:14px;
+    margin-top:3px;
+    color:white;
+    font-family:inherit;
+    font-size:14px;
+    font-weight:700;
+    cursor:pointer;
+    background:linear-gradient(
+        90deg,
+        #d91c8d,
+        #9b3cff,
+        #d91c8d
+    );
+    background-size:200% 100%;
+    box-shadow:0 0 20px rgba(255,45,166,.25);
+    transition:.3s;
+}
+
+.submit:hover{
+    background-position:100% 0;
+    transform:translateY(-2px);
+    box-shadow:0 0 30px rgba(255,45,166,.45);
+}
+
+.submit:disabled{
+    opacity:.6;
+    cursor:wait;
+}
+
+.submit i{
+    margin-left:7px;
+}
+
+/* SUCCESS */
+
+.success{
+    display:none;
+    text-align:center;
+}
+
+.success.show{
+    display:block;
+    animation:successIn .6s ease;
+}
+
+@keyframes successIn{
+    from{
+        opacity:0;
+        transform:scale(.9);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.success-icon{
+    width:72px;
+    height:72px;
+    margin:5px auto 15px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:var(--green);
+    border:1px solid var(--green);
+    box-shadow:
+    0 0 15px rgba(0,255,136,.3),
+    inset 0 0 15px rgba(0,255,136,.08);
+    font-size:31px;
+}
+
+.success h2{
+    font-size:21px;
+    margin-bottom:8px;
+}
+
+.success p{
+    color:var(--muted);
+    font-size:12px;
+    line-height:2;
+}
+
+.tracking{
+    margin:18px 0;
+    padding:13px;
+    border:1px dashed rgba(255,45,166,.5);
+    border-radius:13px;
+    background:rgba(255,45,166,.05);
+}
+
+.tracking small{
+    display:block;
+    color:#999;
+    font-size:10px;
+    margin-bottom:5px;
+}
+
+.tracking strong{
+    color:var(--pink2);
+    font-family:monospace;
+    letter-spacing:2px;
+    font-size:17px;
+    direction:ltr;
+    display:block;
+}
+
+.new-report{
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.04);
+    color:#ddd;
+    border-radius:11px;
+    padding:10px 17px;
+    font-family:inherit;
+    cursor:pointer;
+}
+
+/* CONTACT */
+
+.contact{
+    margin-top:18px;
+    padding-top:17px;
+    border-top:1px solid rgba(255,255,255,.07);
+    text-align:center;
+}
+
+.contact-title{
+    font-size:12px;
+    color:#ddd;
+    margin-bottom:12px;
+}
+
+.contact-title i{
+    color:var(--pink);
+    margin-left:5px;
+}
+
+.contact-links{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+}
+
+.contact-link{
+    flex:1;
+    max-width:150px;
+    min-height:58px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    border:1px solid rgba(255,45,166,.25);
+    border-radius:13px;
+    background:rgba(255,45,166,.04);
+    color:#ddd;
+    text-decoration:none;
+    font-size:11px;
+    transition:.3s;
+}
+
+.contact-link i{
+    font-size:20px;
+    color:var(--pink);
+    text-shadow:0 0 12px var(--pink);
+}
+
+.contact-link:hover{
+    transform:translateY(-3px);
+    border-color:var(--pink);
+    box-shadow:0 0 20px rgba(255,45,166,.18);
+    color:white;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    color:#5e5965;
+    font-size:9px;
+    margin-top:13px;
+    direction:ltr;
+    letter-spacing:1px;
+}
+
+/* VPN ALERT */
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.82);
+    backdrop-filter:blur(10px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:100;
+}
+
+.alert{
+    width:100%;
+    max-width:370px;
+    background:#0d0a11;
+    border:1px solid rgba(255,45,166,.55);
+    border-radius:20px;
+    padding:25px 20px;
+    text-align:center;
+    box-shadow:0 0 35px rgba(255,45,166,.2);
+    animation:alertIn .5s ease;
+}
+
+.alert-icon{
+    font-size:37px;
+    color:var(--pink);
+    margin-bottom:13px;
+    text-shadow:0 0 20px var(--pink);
+}
+
+.alert h2{
+    font-size:19px;
+    margin-bottom:8px;
+}
+
+.alert p{
+    color:#aaa;
+    font-size:12px;
+    line-height:2;
+    margin-bottom:18px;
+}
+
+.alert button{
+    width:100%;
+    border:0;
+    border-radius:11px;
+    padding:12px;
+    background:linear-gradient(90deg,#d91c8d,#9139ef);
+    color:white;
+    font-family:inherit;
+    font-weight:700;
+    cursor:pointer;
+}
+
+@keyframes alertIn{
+    from{
+        opacity:0;
+        transform:translateY(20px) scale(.95);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:480px){
+
+    .page{
+        padding:18px 12px;
+    }
+
+    .card{
+        padding:21px 16px;
+        border-radius:21px;
+    }
+
+    .brand{
+        font-size:28px;
+    }
+
+    .title{
+        font-size:19px;
+    }
+
+    input,
+    textarea{
+        font-size:13px;
+    }
+
+    .contact-link{
+        min-height:55px;
+    }
+}
+
+@media(max-height:700px){
+
+    .page{
+        align-items:flex-start;
+        padding-top:15px;
+        padding-bottom:15px;
+    }
+
+    .card{
+        padding-top:17px;
+        padding-bottom:17px;
+    }
+
+    textarea{
+        min-height:95px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="scanline"></div>
+
+<div class="particles">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+
+<!-- VPN ALERT -->
+
+<div class="overlay" id="vpnAlert">
+
+    <div class="alert">
+
+        <div class="alert-icon">
+            <i class="fa-solid fa-shield-halved"></i>
+        </div>
+
+        <h2>اتصال امن</h2>
+
+        <p>
+            برای استفاده بهتر از سامانه،
+            لطفاً فیلترشکن خود را روشن کرده
+            و سپس وارد سامانه شوید.
+        </p>
+
+        <button onclick="closeAlert()">
+            متوجه شدم
+        </button>
+
+    </div>
+
+</div>
+
+
+<main class="page">
+
+<div class="app">
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <div class="brand">
+        MISS MOHAMMDI
+    </div>
+
+    <div class="subtitle">
+        SECURE REPORT SYSTEM
+    </div>
+
+    <div class="status">
+        <span class="status-dot"></span>
+        SYSTEM ONLINE
+    </div>
+
+</header>
+
+
+<!-- MAIN CARD -->
+
+<section class="card">
+
+<span class="corner tl"></span>
+<span class="corner tr"></span>
+<span class="corner bl"></span>
+<span class="corner br"></span>
+
+
+<div class="terminal">
+&gt; secure_terminal_ready...
+</div>
+
+
+<!-- FORM -->
+
+<div id="formSection">
+
+    <div class="title">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        ثبت گزارش مزاحمت
+    </div>
+
+    <div class="description">
+        در صورت دریافت تماس یا پیام مزاحم،
+        شماره فرد مزاحم و شرح اتفاق را وارد کنید.
+    </div>
+
+
+    <form id="reportForm">
+
+        <div class="field">
+
+            <label>
+                <i class="fa-solid fa-phone"></i>
+                شماره فرد مزاحم
+            </label>
+
+            <input
+                type="tel"
+                id="phone"
+                placeholder="09123456789"
+                inputmode="tel"
+                required
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                <i class="fa-solid fa-message"></i>
+                شرح مزاحمت
+            </label>
+
+            <textarea
+                id="message"
+                placeholder="شرح کوتاهی از مزاحمت را بنویسید..."
+                required
+            ></textarea>
+
+        </div>
+
+
+        <button
+            class="submit"
+            id="submitBtn"
+            type="submit"
+        >
+
+            <i class="fa-solid fa-paper-plane"></i>
+
+            ثبت گزارش
+
+        </button>
+
+    </form>
+
+</div>
+
+
+<!-- SUCCESS -->
+
+<div class="success" id="successSection">
+
+    <div class="success-icon">
+        <i class="fa-solid fa-check"></i>
+    </div>
+
+    <h2>
+        گزارش ثبت شد
+    </h2>
+
+    <p>
+        گزارش شما با موفقیت دریافت شد.
+        اطلاعات برای بررسی ارسال گردید.
+    </p>
+
+
+    <div class="tracking">
+
+        <small>
+            کد پیگیری
+        </small>
+
+        <strong id="trackingCode">
+            #MR-000000
+        </strong>
+
+    </div>
+
+
+    <button
+        class="new-report"
+        onclick="newReport()"
+    >
+        ثبت گزارش جدید
+    </button>
+
+</div>
+
+
+<!-- CONTACT -->
+
+<div class="contact">
+
+    <div class="contact-title">
+        <i class="fa-solid fa-headset"></i>
+        راه‌های ارتباطی
+    </div>
+
+
+    <div class="contact-links">
+
+        <a
+            class="contact-link"
+            href="https://instagram.com/113_13_113"
+            target="_blank"
+        >
+
+            <i class="fa-brands fa-instagram"></i>
+
+            <span>
+                Instagram
+            </span>
+
+        </a>
+
+
+        <a
+            class="contact-link"
+            href="https://t.me/mmad_hesam"
+            target="_blank"
+        >
+
+            <i class="fa-brands fa-telegram"></i>
+
+            <span>
+                Telegram
+            </span>
+
+        </a>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<div class="footer">
+MISS MOHAMMDI • SECURE REPORT SYSTEM
+</div>
+
+
+</div>
+
+</main>
+
+
+<script>
+
+/* ================================
+   TELEGRAM CONFIG
+================================ */
+
+const BOT_TOKEN = "8041604841:AAH2jncYKPd2AaTb3AQtuzFX91KNC5qd-AE";
+const CHAT_ID = "643456785";
+
+
+/* ================================
+   CLOSE ALERT
+================================ */
+
+function closeAlert(){
+
+    document
+    .getElementById("vpnAlert")
+    .style.display = "none";
+
+}
+
+
+/* ================================
+   TRACKING CODE
+================================ */
+
+function generateTrackingCode(){
+
+    const chars =
+    "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+
+    let code = "";
+
+    for(let i = 0; i < 6; i++){
+
+        code += chars[
+            Math.floor(
+                Math.random() * chars.length
+            )
+        ];
+
+    }
+
+    return "#MR-" + code;
+
+}
+
+
+/* ================================
+   SEND REPORT
+================================ */
+
+document
+.getElementById("reportForm")
+.addEventListener("submit", async function(event){
+
+    event.preventDefault();
+
+
+    const phone =
+    document.getElementById("phone")
+    .value.trim();
+
+
+    const message =
+    document.getElementById("message")
+    .value.trim();
+
+
+    const submitBtn =
+    document.getElementById("submitBtn");
+
+
+    if(!phone || !message){
+        return;
+    }
+
+
+    const trackingCode =
+    generateTrackingCode();
+
+
+    const now = new Date();
+
+
+    const date =
+    now.toLocaleString("fa-IR");
+
+
+    const telegramText =
+
+`🚨 گزارش جدید مزاحمت
+
+━━━━━━━━━━━━━━━━━━
+
+📱 شماره فرد مزاحم:
+${phone}
+
+📝 شرح مزاحمت:
+${message}
+
+🆔 کد پیگیری:
+${trackingCode}
+
+🕐 زمان ثبت:
+${date}
+
+━━━━━━━━━━━━━━━━━━
+
+🎀 MISS MOHAMMDI
+🔐 SECURE REPORT SYSTEM`;
+
+
+    submitBtn.disabled = true;
+
+
+    submitBtn.innerHTML =
+    '<i class="fa-solid fa-spinner fa-spin"></i> در حال ارسال...';
+
+
+    try{
+
+        const response = await fetch(
+
+            `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
+
+            {
+
+                method:"POST",
+
+                headers:{
+                    "Content-Type":"application/json"
+                },
+
+                body:JSON.stringify({
+
+                    chat_id:CHAT_ID,
+
+                    text:telegramText
+
+                })
+
+            }
+
+        );
+
+
+        const result =
+        await response.json();
+
+
+        if(!result.ok){
+
+            throw new Error(
+                "Telegram error"
+            );
+
+        }
+
+
+        /* SUCCESS */
+
+        document
+        .getElementById("formSection")
+        .style.display = "none";
+
+
+        document
+        .getElementById("successSection")
+        .classList.add("show");
+
+
+        document
+        .getElementById("trackingCode")
+        .textContent = trackingCode;
+
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "ارسال گزارش انجام نشد.\n\n" +
+            "اتصال اینترنت را بررسی کنید."
+        );
+
+    }
+
+
+    submitBtn.disabled = false;
+
+
+    submitBtn.innerHTML =
+    '<i class="fa-solid fa-paper-plane"></i> ثبت گزارش';
+
+});
+
+
+/* ================================
+   NEW REPORT
+================================ */
+
+function newReport(){
+
+    document
+    .getElementById("reportForm")
+    .reset();
+
+
+    document
+    .getElementById("successSection")
+    .classList.remove("show");
+
+
+    document
+    .getElementById("formSection")
+    .style.display = "block";
+
+}
+
+</script>
+
+</body>
+</html>
